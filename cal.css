@@ -1,0 +1,291 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #000000, #393E46);
+  
+  overflow:hidden;
+}
+
+body {
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+ 
+}
+
+.display-6{
+  color: #eadcb9d0; 
+  font-family: 'JetBrains Mono', monospace;
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom:0px;
+  text-shadow: 1px 2px 5px #777a62;
+  padding-left:40px;
+  cursor:default;
+}
+
+
+
+
+#display,#input{ 
+    
+  background-color: transparent;
+  border: none;
+}
+
+#iplayout{
+ border: 1.5px #dfd0b8;
+ border-style:solid ;
+ border-radius: 30px;
+ width: 250px;
+ background: linear-gradient(to right, #000000df, #656565fc,#000000df);
+}
+
+
+#display{
+ 
+ border-top-left-radius: 28px;
+ border-top-right-radius: 28px;
+ margin: 0;
+ color: #DFD0B8;
+}
+
+#input{
+ 
+ border-bottom-left-radius: 28px;
+ border-bottom-right-radius: 28px;
+ margin: 0;
+ color: #DFD0B8;
+
+}
+
+
+#table button{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    color: #DFD0B8;
+    margin-top: 10px;
+    margin-inline: 10px;
+    font-family:'Roboto Mono', monospace;
+    border-color:#363636 ;
+    background: linear-gradient(to right, #000000, #41414000);
+}
+.card{
+    border-color:#dfd0b8;
+    border-style: inset;
+    border-width: 3px;
+    width: 320px;
+    height: 500px;
+    border-radius: 60px;
+    margin-top: 60px;
+    align-items: center;  
+    background: linear-gradient(to right, #000000, #41414000,#0000007b); 
+    box-shadow:0px 0px 20px #9e9e84;
+    
+}
+.card-body{
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  padding-bottom: 0;
+}
+
+
+ .form-control:focus {
+  box-shadow: none;
+  border-color:transparent;
+  outline: none; 
+}
+
+.form-control {
+  border-radius: 0; 
+  text-align: right;
+}
+
+
+/* For Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#footer {
+  width: 140px;
+  height: 50px;
+  position: relative; /* Needed for absolute positioning */
+  margin: 20px auto 0;
+  text-align: center;
+  border: none; /* Remove border from main element */
+  overflow: visible; /* Allow pseudo-element to overflow */
+}
+
+/* Footer's visual appearance (border/shadow) moved to pseudo-element */
+#footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #dfd0b8;
+  border-bottom: none;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-shadow: 0px -4px 10px #000000;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  z-index: 0; /* Place behind button */
+}
+
+#fbtn {
+  width: 100%;
+  position: relative;
+  background:transparent;
+  border: none;
+ 
+
+}
+
+.bi{
+  color: rgb(97, 97, 97);
+  z-index: 1; /* Place above pseudo-element */
+  transition: color 0.3s ease-in-out;
+}
+
+/* Hover effect: Only transform the pseudo-element */
+#footer:hover::before {
+  transform: translateY(-15px);
+  box-shadow: 0 -8px 15px rgba(0, 0, 0, 0.3);
+}
+
+#footer:hover .bi {
+  color: #ff9d00;
+}
+
+#fbtn:hover {
+  transform: scale(1.3) rotate(-160deg);
+  cursor: pointer;
+}
+
+#table button {
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+#table button:active {
+  transform: scale(0.9);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Equals button special effect */
+#table button:last-child:active {
+  background: linear-gradient(to right, #484646,#dfd0b8 );
+ 
+}
+
+/* Footer lightning button */
+#bi {
+  transition: transform 0.1s ease;
+}
+#bi:active {
+  transform: scale(1) translateY(-15px);
+}
+
+/* Disable Bootstrap flash */
+.btn-primary:active {
+  box-shadow: none !important;
+}
+
+/* Footer click animation */
+#footer {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#footer:active {
+  transform: translateY(5px) scale(0.98); /* Press down slightly */
+ 
+}
+
+
+
+/* Modal background overlay */
+.modal-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.80); 
+}
+
+/* Modal container */
+.modal-content {
+  background: rgba(25, 25, 25, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1),
+              0 0 40px rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  color: #e4e4e4; /* Updated to match header text color */
+  font-family: 'Inter', sans-serif;
+  animation: glowUp 0.3s ease forwards;
+}
+
+/* Header */
+.modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+   background: linear-gradient(to right, #000000, #393E46);
+  color: #f2e5c7;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+
+/* Title */
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Body */
+.modal-body {
+  padding: 20px;
+  font-size: 1rem;
+}
+
+/* Footer */
+.modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+   background: linear-gradient(to right, #000000, #393E46);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+/* Animation */
+@keyframes glowUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+
+
+.btn-close:focus {
+  background-color:#f2e5c793;
+  outline-offset: 2px;
+  box-shadow: none !important; /* Remove Bootstrap blue shadow */
+ 
+}
+
+
+
+
+
