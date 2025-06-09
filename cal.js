@@ -2,18 +2,21 @@ let input = document.getElementById("input");
 let display = document.getElementById("display");
 let temp = [];
 let lastResult = null;
-let isProcessingInput = false; // Flag to prevent re-entrancy
+let isProcessingInput = false;
 
-// Updated input validation function
 function validateInput(currentValue, newChar) {
-    // Add early returns for invalid cases
-    if (newChar.match(/[a-zA-Z]/)) return false; // Block letters immediately
+    if (newChar.match(/[a-zA-Z]/)) return false;
 
     const lastChar = currentValue.slice(-1);
     const operators = ['+', '*', '/', '%'];
 
-    // Rule 1: No consecutive operators (except - after operators)
+    // Rule 1: No consecutive operators (with special handling for -)
     if (operators.includes(lastChar) && operators.includes(newChar)) {
+        return false;
+    }
+
+    // Special case: prevent -* or -/ or -% etc.
+    if (lastChar === '-' && operators.includes(newChar)) {
         return false;
     }
 
@@ -71,9 +74,11 @@ input.addEventListener("input", () => {
         if (val !== validatedVal) {
             input.value = validatedVal;
             val = validatedVal;
+            isProcessingInput = false;
+            return; // Exit after correcting the input
         }
 
-        // 4. Safe parsing with try-catch
+        // 4. Safe parsing
         temp = [];
         let i = 0;
         const len = val.length;
@@ -114,8 +119,9 @@ input.addEventListener("input", () => {
             } else {
                 // Handle operators
                 if ("+*/%-".includes(char)) {
-                    // For minus after operators, treat as part of next number
-                    if (char === '-' && "+-*/%".includes(val[i - 1])) {
+                    // Special case: don't allow operators after standalone -
+                    if (char !== '-' && val[i - 1] === '-' &&
+                        (i === 1 || "+-*/%".includes(val[i - 2]))) {
                         i++;
                         continue;
                     }
@@ -124,7 +130,7 @@ input.addEventListener("input", () => {
                     i++;
                     expectNumber = true;
                 } else {
-                    i++; // Skip invalid characters
+                    i++;
                 }
             }
         }
@@ -145,12 +151,11 @@ input.addEventListener("input", () => {
 
 
 
-
 // Updated evaluation function with BODMAS/PEMDAS rules
 function evaluation() {
     if (temp.length < 3) {
         display.value = "";
-        return input.value;
+        return 0;
     }
 
     // First pass: Handle * / % (higher precedence)
@@ -193,7 +198,7 @@ function evaluation() {
 // Equals/Enter handler
 function equalInput() {
     if (temp.length === 0 && lastResult !== null) {
-        display.value =lastResult;
+        display.value = lastResult;
         return;
     }
 
@@ -221,7 +226,7 @@ input.addEventListener('keydown', (event) => {
         event.preventDefault();
 
         // If starting new input after equals
-        if (lastResult !== null && input.value === "") { 
+        if (lastResult !== null && input.value === "") {
             if (["+", "-", "*", "/", "%"].includes(key)) {
                 input.value = lastResult + key;
             } else {
