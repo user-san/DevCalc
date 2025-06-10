@@ -317,9 +317,3 @@ input[type="number"]::-webkit-outer-spin-button {
     -webkit-user-select: none;
 }
 
-/* Input scrolling */
-#input {
-    overflow-x: auto;
-    white-space: nowrap;
-    scroll-behavior: smooth;
-}
