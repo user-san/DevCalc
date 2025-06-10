@@ -50,6 +50,7 @@ body {
  border-top-right-radius: 28px;
  margin: 0;
  color: #DFD0B8;
+ font-weight:lighter;
 }
 
 #input{
@@ -58,7 +59,7 @@ body {
  border-bottom-right-radius: 28px;
  margin: 0;
  color: #DFD0B8;
-
+ font-weight:bolder;
 }
 
 
@@ -145,9 +146,9 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 100%;
   position: relative;
   background:transparent;
-  border: none;
- 
-
+  border:none;
+  border-top-left-radius: 30px;
+   border-top-right-radius: 30px;
 }
 
 .bi{
@@ -210,8 +211,6 @@ input[type="number"]::-webkit-outer-spin-button {
   transform: translateY(5px) scale(0.98); /* Press down slightly */
  
 }
-
-
 
 /* Modal background overlay */
 .modal-backdrop.show {
@@ -276,16 +275,51 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 
-
-
-.btn-close:focus {
+.btn-close:hover {
   background-color:#f2e5c793;
   outline-offset: 2px;
-  box-shadow: none !important; /* Remove Bootstrap blue shadow */
+  box-shadow: none !important;
  
 }
 
+/* Add to your CSS file */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+  20%, 40%, 60%, 80% { transform: translateX(3px); }
+}
+
+/* Close button styles */
+.btn-close:focus {
+  background-color: #f2e5c793;
+  outline-offset: 2px;
+  box-shadow: none !important;
+  animation: shake 0.8s ease-in-out;
+  /* transform-origin: center center; */
+  }
 
 
+#input {
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth; /* Add smooth scrolling */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+#input::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome/Safari */
+}
 
 
+/* Prevent text selection in calculator */
+.card, .card * {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Input scrolling */
+#input {
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
