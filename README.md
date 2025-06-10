@@ -1,8 +1,8 @@
-⚡DevCalc - Developer Calculator 
+# ⚡DevCalc - Developer Calculator 
 
-   ✅A sleek, responsive calculator designed specifically for developers with aggressive focus management and optimized keyboard/mouse interactions.
+   ##### ✅A sleek, responsive calculator designed specifically for developers with aggressive focus management and optimized keyboard/mouse interactions.
 
-✨ Features
+### ✨ Features
 
     • Always-focused input with auto-scrolling to end
     • Precision evaluation with proper operator precedence
@@ -28,7 +28,7 @@
     ✅ Visual error feedback
     ✅ Auto-scrolls and focuses input during interaction
 
-🛠️ Technologies
+### 🛠️ Technologies
 
     •	HTML5, CSS3 (with custom animations)
     •	Vanilla JavaScript (no dependencies)
@@ -38,6 +38,6 @@
 
 
 
-📷 DevCalc Screenshot:
+### 📷 DevCalc Screenshot:
 
  ![Screenshot 2025-06-10 192316](https://github.com/user-attachments/assets/ab31507e-ad67-4e20-87d7-d8197d794419)
